@@ -18,20 +18,24 @@ defmodule LargeAndDeepDOM do
     row = 1
     column = 1
     grid_return = visible_text(LDeep.row_and_column_ele(row, column))
-    assert(grid_return == "#{Integer.to_string(row)}.#{Integer.to_string(column)}", "--- EXPECTED: #{row}.#{column} GOT: #{grid_return} INSTEAD. ---")
+    assertGrid(grid_return, row, column)
   end
 
   test "last on table" do
     row = 50
     column = 50
     grid_return = visible_text(LDeep.row_and_column_ele(row, column))
-    assert(grid_return == "#{Integer.to_string(row)}.#{Integer.to_string(column)}", "--- EXPECTED: #{row}.#{column} GOT: #{grid_return} INSTEAD. ---")
+    assertGrid(grid_return, row, column)
   end
 
  test "random on table" do
     row = Enum.random(1..50)
     column = Enum.random(1..50)
     grid_return = visible_text(LDeep.row_and_column_ele(row, column))
+    assertGrid(grid_return, row, column)
+  end
+
+  def assertGrid(grid_return, row, column) do
     assert(grid_return == "#{Integer.to_string(row)}.#{Integer.to_string(column)}", "--- EXPECTED: #{row}.#{column} GOT: #{grid_return} INSTEAD. ---")
   end
 end

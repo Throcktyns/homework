@@ -4,8 +4,8 @@ defmodule HorizontalSlide do
   # Slide is in half steps, so every arrow_nudges will equal .5 in the result
   def precision_click_and_slide(arrow_nudges, direction) do
     move_to(slide_ele(), 0, 0)
-    mouse_down(0)
-    mouse_up(0)
+    mouse_down()
+    mouse_up()
     for _r <- 1..arrow_nudges, do: send_keys(String.to_atom("#{direction}_arrow"))
   end
 

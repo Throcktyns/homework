@@ -9,7 +9,7 @@ defmodule FormAuth do
     click(login_ele())
   end
 
-  def click_and_send(element, text) do
+  defp click_and_send(element, text) do
     click(element)
     send_text(text)
   end

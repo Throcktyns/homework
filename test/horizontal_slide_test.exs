@@ -32,7 +32,7 @@ defmodule HorizontalSlider do
     assert_slide_value(visible_text(HSlide.slide_value_ele()), "25")
   end
 
-  # Pulled this assert out to take screenshot, but it's a little funky.
+  # Pulled these tests' assert out to add screenshot on failure, but it's a little funky.
   def assert_slide_value(slide_value, expected) do
     try do
       assert(slide_value == expected)
